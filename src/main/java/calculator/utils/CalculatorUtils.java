@@ -1,4 +1,6 @@
-package calculator;
+package calculator.utils;
+
+import calculator.domain.Operator;
 
 import java.util.Arrays;
 import java.util.HashMap;
