@@ -2,7 +2,8 @@ package calculator.domain;
 
 import calculator.utils.CalculatorUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
     private List<Double> numbers = new ArrayList<>();

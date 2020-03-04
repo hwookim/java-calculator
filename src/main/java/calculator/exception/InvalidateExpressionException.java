@@ -5,3 +5,4 @@ public class InvalidateExpressionException extends IllegalArgumentException {
         super("/ 뒤에는 0이 올 수 없습니다.");
     }
 }
+

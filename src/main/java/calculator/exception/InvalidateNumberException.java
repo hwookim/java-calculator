@@ -5,3 +5,4 @@ public class InvalidateNumberException extends IllegalArgumentException {
         super("잘못된 숫자가 들어갔습니다.");
     }
 }
+
