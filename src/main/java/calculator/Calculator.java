@@ -13,6 +13,10 @@ public class Calculator {
     }
 
     public void distinguish(List<String> input) {
+        if (input.size() % 2 == 0) {
+            throw new IllegalArgumentException();
+        }
+
         for (int i = 0; i < input.size(); i++) {
             validate(input.get(i), i);
         }
