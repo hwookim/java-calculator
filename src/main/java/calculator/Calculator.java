@@ -22,6 +22,7 @@ public class Calculator {
         if (index % 2 == 0) {
             double number = CalculatorUtils.validateNumber(target);
             numbers.add(number);
+            return;
         }
         String operator = CalculatorUtils.validateOperator(target);
         operators.add(operator);
