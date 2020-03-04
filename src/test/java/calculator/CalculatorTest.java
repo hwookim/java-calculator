@@ -52,4 +52,11 @@ public class CalculatorTest {
                 Arguments.of("1 - 2 + 3", "2.0")
         );
     }
+
+    @Test
+    @DisplayName("/ 뒤에 0이 오는 실패 테스트")
+    void calculateFailTest() {
+        assertThatThrownBy(() -> new Calculator("1 / 0"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

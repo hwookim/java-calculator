@@ -5,10 +5,12 @@ import java.util.*;
 public class Calculator {
     private List<Double> numbers = new ArrayList<>();
     private List<String> operators = new ArrayList<>();
+    private double result;
 
     public Calculator(String input) {
         List<String> expression = CalculatorUtils.split(input);
         distinguish(expression);
+        calculate();
     }
 
     public void distinguish(List<String> input) {
@@ -31,19 +33,17 @@ public class Calculator {
         operators.add(operator);
     }
 
-    private double calculate() {
+    private void calculate() {
         int index = 0;
 
-        double result = numbers.get(index++);
+        result = numbers.get(index++);
         for (String operator : operators) {
             result = CalculatorUtils.function.get(operator).apply(result, numbers.get(index++));
         }
-
-        return result;
     }
 
     @Override
     public String toString() {
-        return Double.toString(calculate());
+        return Double.toString(result);
     }
 }
