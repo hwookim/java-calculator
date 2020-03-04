@@ -30,6 +30,4 @@ public enum Operator {
     public BiFunction<Double, Double, Double> getFunction() {
         return function;
     }
-
 }
-

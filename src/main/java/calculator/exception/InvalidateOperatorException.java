@@ -5,4 +5,3 @@ public class InvalidateOperatorException extends IllegalArgumentException {
         super("잘못된 연산자가 들어갔습니다.");
     }
 }
-

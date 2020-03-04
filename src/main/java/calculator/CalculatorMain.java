@@ -10,5 +10,4 @@ public class CalculatorMain {
         Calculator calculator = new Calculator(input);
         OutputView.printResult(calculator);
     }
-
 }
