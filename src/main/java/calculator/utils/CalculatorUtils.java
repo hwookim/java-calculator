@@ -1,6 +1,8 @@
 package calculator.utils;
 
 import calculator.domain.Operator;
+import calculator.exception.InvalidateNumberException;
+import calculator.exception.InvalidateOperatorException;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,13 +33,13 @@ public class CalculatorUtils {
         try {
             return Double.parseDouble(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new InvalidateNumberException();
         }
     }
 
     public static String validateOperator(String target) {
         if (!function.containsKey(target)) {
-            throw new IllegalArgumentException();
+            throw new InvalidateOperatorException();
         }
         return target;
     }

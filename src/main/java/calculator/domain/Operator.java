@@ -1,5 +1,7 @@
 package calculator.domain;
 
+import calculator.exception.InvalidateExpressionException;
+
 import java.util.function.BiFunction;
 
 public enum Operator {
@@ -8,7 +10,7 @@ public enum Operator {
     MULTIPLICATION("*", (firstOperand, secondOperand) -> firstOperand * secondOperand),
     DIVISION("/", (firstOperand, secondOperand) -> {
         if (secondOperand == 0) {
-            throw new IllegalArgumentException();
+            throw new InvalidateExpressionException();
         }
         return firstOperand / secondOperand;
     });
