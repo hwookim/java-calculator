@@ -6,8 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
@@ -36,6 +34,22 @@ public class CalculatorTest {
                 Arguments.of("1 + + 2 * 3"),
                 Arguments.of("+ 1 + 2 * 3"),
                 Arguments.of("1 + 2 * 3 +")
+        );
+    }
+
+    @ParameterizedTest
+    @DisplayName("계산 테스트")
+    @MethodSource("calculateInput")
+    void calculateTest(String input, String expect) {
+        assertThat(new Calculator(input).toString()).isEqualTo(expect);
+    }
+
+    static Stream<Arguments> calculateInput() {
+        return Stream.of(
+                Arguments.of("1 + 2 * 3", "9.0"),
+                Arguments.of("1 + 2 * -3", "-9.0"),
+                Arguments.of("1 + 2 / 3", "1.0"),
+                Arguments.of("1 - 2 + 3", "2.0")
         );
     }
 }

@@ -3,7 +3,6 @@ package calculator;
 import java.util.*;
 
 public class Calculator {
-
     private List<Double> numbers = new ArrayList<>();
     private List<String> operators = new ArrayList<>();
 
@@ -30,5 +29,21 @@ public class Calculator {
         }
         String operator = CalculatorUtils.validateOperator(target);
         operators.add(operator);
+    }
+
+    private double calculate() {
+        int index = 0;
+
+        double result = numbers.get(index++);
+        for (String operator : operators) {
+            result = CalculatorUtils.function.get(operator).apply(result, numbers.get(index++));
+        }
+
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return Double.toString(calculate());
     }
 }
