@@ -15,6 +15,7 @@ import view.InputView;
 import view.OutputView;
 
 public class Calculator {
+
     private final List<Double> numbers = new ArrayList<>();
     private final List<Character> operators = new ArrayList<>();
 
@@ -23,14 +24,6 @@ public class Calculator {
         operatorFunction.put('-', SUBTRACTION);
         operatorFunction.put('*', MULTIPLICATION);
         operatorFunction.put('/', DIVISION);
-    }
-
-    public List<Double> getNumbers() {
-        return numbers;
-    }
-
-    public List<Character> getOperators() {
-        return operators;
     }
 
     public void run() {
@@ -59,5 +52,13 @@ public class Calculator {
         }
 
         return result;
+    }
+
+    public List<Double> getNumbers() {
+        return numbers;
+    }
+
+    public List<Character> getOperators() {
+        return operators;
     }
 }

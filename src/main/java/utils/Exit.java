@@ -1,8 +1,9 @@
 package utils;
 
-import static utils.Constant.*;
+import static utils.Constant.ZERO;
 
 public class Exit {
+
     static public void sendErrorMessage(String message) {
         System.out.println(message);
         System.out.println("프로그램을 종료합니다.");

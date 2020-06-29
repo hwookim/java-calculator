@@ -1,13 +1,14 @@
 package utils;
 
-import static utils.Constant.*;
+import static utils.Constant.operatorFunction;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class InputValidation {
 
     public static boolean checkNullOroSpace(String input) {
-        if (input.equals(null) || input.equals(" ")) {
+        if (Objects.isNull(input) || input.equals(" ")) {
             Exit.sendErrorMessage("공백을 입력하셨습니다.");
         }
         return false;
@@ -26,7 +27,7 @@ public class InputValidation {
         char operator = stringOperator.charAt(0);
 
         if (!operatorFunction.containsKey(operator)
-                || stringOperator.length() != 1) {
+            || stringOperator.length() != 1) {
             Exit.sendErrorMessage("잘못된 연산자를 입력하셨습니다.");
         }
         return operator;
@@ -34,8 +35,8 @@ public class InputValidation {
 
     public static String[] trimSpace(String[] formulas) {
         return Arrays.stream(formulas)
-                .filter(formula -> !formula.isEmpty())
-                .toArray(String[]::new);
+            .filter(formula -> !formula.isEmpty())
+            .toArray(String[]::new);
     }
 
 }
