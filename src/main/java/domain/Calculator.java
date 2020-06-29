@@ -1,11 +1,18 @@
 package domain;
 
-import static utils.Constant.*;
+import static utils.Constant.ADDITION;
+import static utils.Constant.DIVISION;
+import static utils.Constant.EVEN;
+import static utils.Constant.MULTIPLICATION;
+import static utils.Constant.SUBTRACTION;
+import static utils.Constant.ZERO;
+import static utils.Constant.operatorFunction;
+
+import java.util.ArrayList;
+import java.util.List;
 import utils.InputValidation;
 import view.InputView;
 import view.OutputView;
-
-import java.util.*;
 
 public class Calculator {
     private final List<Double> numbers = new ArrayList<>();
@@ -31,7 +38,7 @@ public class Calculator {
         OutputView.printResult(calculate());
     }
 
-    private void splitFormula(String formula) {
+    public void splitFormula(String formula) {
         String[] formulas = InputValidation.trimSpace(formula.split(" ", ZERO));
 
         for (int i = ZERO; i < formulas.length; i++) {
@@ -43,7 +50,7 @@ public class Calculator {
         }
     }
 
-    private double calculate() {
+    public double calculate() {
         int index = ZERO;
 
         double result = numbers.get(index++);
