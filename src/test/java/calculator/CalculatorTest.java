@@ -2,13 +2,20 @@ package calculator;
 
 import domain.Calculator;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class CalculatorTest {
-    Calculator calculator = new Calculator();
+
+    Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
 
     @DisplayName("계산식 분할 테스트")
     @Test
@@ -39,18 +46,12 @@ public class CalculatorTest {
         Assertions.assertThat(result).isEqualTo(expect);
     }
 
-//    @DisplayName("종료 상황 테스트")
-//    @Test
-//    void SendErrorMessage() {
-//        String value = "프로그램을 종료합니다.\r\n";
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//
-//        String string = "1 + 3 / 0";
-//        InputStream in = new ByteArrayInputStream(string.getBytes());
-//        System.setIn(in);
-//        calculator.run();
-//
-//        Assertions.assertThat(outContent.toString()).isEqualTo(value);
-//    }
+    @DisplayName("0으로 나눌 때 오류")
+    @Test
+    void calculate_Fail_When_DivideZero() {
+        calculator.splitFormula("2 / 0");
+        Assertions.assertThatThrownBy(() -> calculator.calculate())
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("0으로는 나눌 수 없습니다.");
+    }
 }

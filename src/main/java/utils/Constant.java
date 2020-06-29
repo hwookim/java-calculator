@@ -14,7 +14,7 @@ public class Constant {
     public static final BiFunction<Double, Double, Double> MULTIPLICATION = (a, b) -> a * b;
     public static final BiFunction<Double, Double, Double> DIVISION = (a, b) -> {
         if (b == ZERO) {
-            Exit.sendErrorMessage("0으로는 나눌 수 없습니다.");
+            throw new IllegalArgumentException("0으로는 나눌 수 없습니다.");
         }
         return a / b;
     };

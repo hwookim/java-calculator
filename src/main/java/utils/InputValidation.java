@@ -9,7 +9,7 @@ public class InputValidation {
 
     public static boolean checkNullOroSpace(String input) {
         if (Objects.isNull(input) || input.equals(" ")) {
-            Exit.sendErrorMessage("공백을 입력하셨습니다.");
+            throw new IllegalArgumentException("공백을 입력하셨습니다.");
         }
         return false;
     }
@@ -18,9 +18,8 @@ public class InputValidation {
         try {
             return Double.parseDouble(stringNumber);
         } catch (Exception e) {
-            Exit.sendErrorMessage("잘못된 피연산자를 입력하셨습니다.");
+            throw new IllegalArgumentException("잘못된 피연산자를 입력하셨습니다.");
         }
-        return -1;
     }
 
     public static char checkIsOperator(String stringOperator) {
@@ -28,7 +27,7 @@ public class InputValidation {
 
         if (!operatorFunction.containsKey(operator)
             || stringOperator.length() != 1) {
-            Exit.sendErrorMessage("잘못된 연산자를 입력하셨습니다.");
+            throw new IllegalArgumentException("잘못된 연산자를 입력하셨습니다.");
         }
         return operator;
     }
